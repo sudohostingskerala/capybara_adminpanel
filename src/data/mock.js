@@ -1,0 +1,1 @@
+export const products=[{id:1,name:'Capybara Hoodie Black',category:'Hoodies',price:2499,stock:25,status:'Active',sku:'CB-HOOD-BLK-S'},{id:2,name:'Capybara T-Shirt White',category:'T-Shirts',price:999,stock:40,status:'Active',sku:'CB-TSH-WHT-M'}];
