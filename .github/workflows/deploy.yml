@@ -1,1 +1,38 @@
+name: Deploy React to S3
 
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - run: npm ci
+      - run: npm run build
+      - name: Show Github OIDC Context
+        run:
+            echo "repository=${{ github.repository }}"
+            echo "ref=${{ github.ref }}"
+          
+            
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::103533473457:role/capybaraadminpanel
+          aws-region: eu-north-1
+
+      - run: aws s3 sync dist/ s3://capybarababy-adminpanel --delete
+
+    #   - run: aws cloudfront create-invalidation --distribution-id E3N3T5Q6JGTWM0 --paths "/*"
