@@ -30,7 +30,7 @@ jobs:
             
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::103533473457:role/capybaraadminpanel
+          role-to-assume: arn:aws:iam::103533473457:role/capyadminpanel
           aws-region: eu-north-1
 
       - run: aws s3 sync dist/ s3://capybarababy-adminpanel --delete
