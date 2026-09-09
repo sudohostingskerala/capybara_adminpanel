@@ -34,11 +34,15 @@ export default function Login() {
         password
       );
 
+      console.log("ADMIN LOGIN RESPONSE:", response.data);
+
       const {
         access,
         refresh,
         user,
       } = response.data;
+
+      console.log("ADMIN LOGIN DATA:", user);
 
       // Store authentication
       localStorage.setItem(
@@ -87,13 +91,14 @@ export default function Login() {
 
         <div className="loginbrand">
           <span className="login-logo">
-            🐹
+            <img src= "/capy-logo-withtext.svg" alt="Capybara Logo"
+            style={{ width: "100px", height: "auto", alignItems: "center", justifyContent: "center" }}
+            ></img>
           </span>
 
-          <div>
+          {/* <div>
             <b>Capybara</b>
-            <small>Admin Panel</small>
-          </div>
+          </div> */}
         </div>
 
 
@@ -131,15 +136,13 @@ export default function Login() {
           {/* Email */}
 
           <label>
-            Email
-
             <input
               type="email"
               value={email}
               onChange={(event) =>
                 setEmail(event.target.value)
               }
-              placeholder="admin@example.com"
+              placeholder="Enter your email"
               autoComplete="email"
               disabled={loading}
             />
@@ -149,8 +152,6 @@ export default function Login() {
           {/* Password */}
 
           <label>
-            Password
-
             <input
               type="password"
               value={password}
@@ -181,7 +182,7 @@ export default function Login() {
 
         {/* Footer */}
 
-        <div className="login-footer">
+        <div className="login-footer" style={{textAlign: "center", paddingTop: "20px"}}>
           <span>
             Authorized administrators only
           </span>

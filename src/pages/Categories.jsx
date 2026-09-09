@@ -135,7 +135,7 @@ export default function Categories() {
           className="btn"
           to="/admin/categories/new"
         >
-          ＋ Add Category
+          + Add Category
         </Link>
 
       </Header>

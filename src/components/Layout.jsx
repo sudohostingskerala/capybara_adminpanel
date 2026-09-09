@@ -1,8 +1,4 @@
-import {
-  NavLink,
-  Outlet,
-  useNavigate,
-} from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 
@@ -29,53 +25,38 @@ export default function Layout() {
   // CURRENT ADMIN
   // =========================================================
 
-  const storedUser =
-    localStorage.getItem("admin_user");
+  const storedUser = localStorage.getItem("admin_user");
 
   let adminUser = null;
 
   try {
-    adminUser = storedUser
-      ? JSON.parse(storedUser)
-      : null;
+    adminUser = storedUser ? JSON.parse(storedUser) : null;
   } catch {
     adminUser = null;
   }
 
   const adminName =
     adminUser?.first_name ||
-    adminUser?.email ||
+    // adminUser?.email ||
+    adminUser?.username ||
     "Administrator";
 
-  const adminEmail =
-    adminUser?.email ||
-    "Administrator";
+  const adminEmail = adminUser?.email || "Administrator";
 
-  const adminInitial =
-    (
-      adminUser?.first_name ||
-      adminUser?.email ||
-      "A"
-    )
-      .charAt(0)
-      .toUpperCase();
+  const adminInitial = (adminUser?.first_name || adminUser?.email || "A")
+    .charAt(0)
+    .toUpperCase();
 
   // =========================================================
   // LOGOUT
   // =========================================================
 
   const logout = () => {
-    localStorage.removeItem(
-      "access_token"
-    );
+    localStorage.removeItem("access_token");
 
-    localStorage.removeItem(
-      "refresh_token"
-    );
+    localStorage.removeItem("refresh_token");
 
-    localStorage.removeItem(
-      "admin_user"
-    );
+    localStorage.removeItem("admin_user");
 
     setOpen(false);
 
@@ -86,24 +67,21 @@ export default function Layout() {
 
   return (
     <div className="shell">
-
       {/* =====================================================
           SIDEBAR
           ===================================================== */}
 
-      <aside
-        className={
-          "side " + (open ? "open" : "")
-        }
-      >
-
+      <aside className={"side " + (open ? "open" : "")}>
         {/* Brand */}
 
         <div className="brand">
+          <img
+            src="capy-logo-landscape.svg"
+            alt="Capybara Logo"
+            style={{ width: "190px" }}
+          />
 
-          <b>🐹</b>
-
-          <div>
+          {/* <div>
             <strong>
               Capybara
             </strong>
@@ -111,171 +89,105 @@ export default function Layout() {
             <small>
               Admin Panel
             </small>
-          </div>
-
+          </div> */}
         </div>
-
 
         {/* Logged-in user */}
 
         <div className="user">
-
-          <i>
-            {adminInitial}
-          </i>
+          <i>{adminInitial}</i>
 
           <div>
+            <strong>{adminName}</strong>
 
-            <strong>
-              {adminName}
-            </strong>
-
-            <small>
-              Store Administrator
-            </small>
-
+            <small>Store Administrator</small>
           </div>
-
         </div>
-
 
         {/* Navigation */}
 
         <nav>
-
           {links.map((item, index) =>
             item.length === 1 ? (
-
-              <label key={index}>
-                {item[0]}
-              </label>
-
+              <label key={index}>{item[0]}</label>
             ) : (
-
               <NavLink
                 key={item[0]}
                 to={item[1]}
-                end={
-                  item[0] === "Dashboard"
-                }
-                onClick={() =>
-                  setOpen(false)
-                }
+                end={item[0] === "Dashboard"}
+                onClick={() => setOpen(false)}
               >
-
-                <span>
-                  {item[2]}
-                </span>
+                <span>{item[2]}</span>
 
                 {item[0]}
-
               </NavLink>
-
-            )
+            ),
           )}
-
         </nav>
-
 
         {/* Logout */}
 
-        <button
-          type="button"
-          className="logout"
-          onClick={logout}
-        >
+        <button type="button" className="logout" onClick={logout}>
           ↪ Logout
         </button>
-
       </aside>
-
 
       {/* =====================================================
           MAIN AREA
           ===================================================== */}
 
       <div className="main">
-
         {/* Header */}
 
         <header>
-
           {/* Mobile menu */}
 
           <button
             type="button"
             className="hamb"
-            onClick={() =>
-              setOpen((value) => !value)
-            }
+            onClick={() => setOpen((value) => !value)}
           >
             ☰
           </button>
 
-
           {/* Search */}
 
           <div className="search">
-
             ⌕
-
-            <input
-              type="search"
-              placeholder="Search anything..."
-            />
-
+            <input type="search" placeholder="Search anything..." />
           </div>
-
 
           {/* Right side */}
 
           <div className="right">
-
             {/* Notification */}
 
-            <span>
-              🔔
-            </span>
+            {/* <span>🔔</span>
 
-            <i>
-              3
-            </i>
-
+            <i>3</i> */}
 
             {/* Avatar */}
 
-            <div className="avatar">
-              {adminInitial}
-            </div>
-
+            <div className="avatar">{adminInitial}</div>
 
             {/* Admin information */}
 
             <div>
-
               <strong>
                 {adminName}
               </strong>
 
-              <small>
-                {adminEmail}
-              </small>
-
+              {/* <p>{adminEmail}</p> */}
             </div>
-
           </div>
-
         </header>
-
 
         {/* Page content */}
 
         <main>
           <Outlet />
         </main>
-
       </div>
-
     </div>
   );
 }

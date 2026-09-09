@@ -125,7 +125,7 @@ export default function Banners() {
           className="btn"
           to="/admin/banners/new"
         >
-          ＋ Add Banner
+          + Add Banner
         </Link>
 
       </Header>

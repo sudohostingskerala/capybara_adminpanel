@@ -906,12 +906,14 @@ td b {
 
 .login h1 {
     font-size: 22px;
-    margin: 28px 0 4px
+    /* margin: 28px 0 4px; */
+    text-align: center;
 }
 
 .login p {
     color: var(--muted);
-    font-size: 11px
+    font-size: 11px;
+    text-align: center;
 }
 
 .login label {
@@ -919,6 +921,20 @@ td b {
     font-size: 10px;
     margin-top: 15px
 }
+
+.login button {
+    width: 100%;
+    margin-top: 20px
+}
+
+.login-error{
+    color: var(--red);
+    font-size: 17px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
 
 .login input {
     display: block;
@@ -1461,6 +1477,27 @@ td b {
 
 .product-panel {
     padding-bottom: 18px;
+}
+
+.productToolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #edf0f4;
+}
+
+.productToolbar input{
+    width: 100%;
+    display: block;
+    padding: 10px 11px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: #fff;
+    color: var(--text);
+    outline: none;
+    font-size: 11px;
 }
 
 .product-panel > h3 {
@@ -3998,7 +4035,7 @@ body {
 }
 
 .user strong {
-    font-size: 13px;
+    font-size: 11px;
 }
 
 .user small {

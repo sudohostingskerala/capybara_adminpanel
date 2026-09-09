@@ -435,7 +435,7 @@ export default function Products() {
           className="btn"
           to="/admin/products/new"
         >
-          ＋ Add Product
+          + Add Product
         </Link>
 
       </Header>
@@ -447,17 +447,7 @@ export default function Products() {
             TOOLBAR
             =================================================== */}
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent:
-              "space-between",
-            alignItems: "center",
-            gap: "16px",
-            marginBottom: "20px",
-            flexWrap: "wrap",
-          }}
-        >
+        <div className="productToolbar">
 
           <input
             type="search"
