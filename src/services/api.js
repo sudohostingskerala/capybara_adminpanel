@@ -484,4 +484,35 @@ export const inventoryApi = {
     ),
 };
 
+
+// =========================================================
+// VIDEO ADVERTISEMENT API
+// =========================================================
+
+export const videoAdApi = {
+  list: () =>
+    api.get("/video-ads/admin/"),
+
+  detail: (id) =>
+    api.get(`/video-ads/admin/${id}/`),
+
+  create: (data) =>
+    api.post("/video-ads/admin/", data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }),
+
+  update: (id, data) =>
+    api.patch(`/video-ads/admin/${id}/`, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }),
+
+  remove: (id) =>
+    api.delete(`/video-ads/admin/${id}/`),
+};
+
+
 export default api;

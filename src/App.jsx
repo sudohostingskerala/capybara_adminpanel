@@ -18,6 +18,8 @@ import Inventory from "./pages/Inventory";
 import Login from "./pages/Login";
 import CategoryForm from "./pages/CategoryForm";
 import BannerForm from "./pages/BannerForm";
+import VideoAds from "./pages/VideoAds";
+import VideoAdForm from "./pages/VideoAdForm";
 
 export default function App() {
   return (
@@ -112,6 +114,20 @@ export default function App() {
   path="orders/:id"
   element={<OrderDetails />}
 />
+
+        {/* Video Advertisements */}
+        <Route
+          path="video-ads"
+          element={<VideoAds />}
+        />
+        <Route
+          path="video-ads/new"
+          element={<VideoAdForm />}
+        />
+        <Route
+          path="video-ads/:id/edit"
+          element={<VideoAdForm />}
+        />
 
         {/* Inventory */}
         <Route
