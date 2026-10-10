@@ -4896,3 +4896,477 @@ td b {
     max-height: 350px;
   }
 }
+
+
+
+/* =========================================================
+   GLOBAL RESPONSIVE OVERRIDES
+   Appended as a final layer so existing page styles remain intact.
+   ========================================================= */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+#root,
+.shell,
+.main,
+.main main,
+.content,
+.product-form-page,
+.video-ad-form {
+  min-width: 0;
+  max-width: 100%;
+}
+
+img,
+video,
+svg,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+button,
+.btn,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+button,
+.btn {
+  min-height: 36px;
+}
+
+input,
+select,
+textarea {
+  min-width: 0;
+}
+
+.panel,
+.stat,
+.mini,
+.product-panel,
+.video-ad-panel,
+.video-ad-card,
+.color-card,
+.variant-card-new,
+.variant-section > .panel {
+  min-width: 0;
+}
+
+.pagehead > *,
+.panelhead > *,
+.productToolbar > *,
+.variant-header > *,
+.product-section-heading > *,
+.color-card-header > *,
+.variant-card-new-header > * {
+  min-width: 0;
+}
+
+.pagehead h1,
+.panel h3,
+.product-section-heading h2,
+.variant-header h2 {
+  overflow-wrap: anywhere;
+}
+
+.table-wrap,
+.table-responsive,
+.responsive-table {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  max-width: 100%;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Dashboard and general page layouts */
+
+@media (max-width: 1200px) {
+  .stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .stats.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid2,
+  .formgrid,
+  .product-basic-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-ad-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .side {
+    width: min(280px, 86vw);
+    max-width: 86vw;
+    box-shadow: 12px 0 35px rgba(0, 0, 0, 0.18);
+  }
+
+  .main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .main header {
+    min-height: 60px;
+    height: auto;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .hamb {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  .right {
+    min-width: 0;
+    gap: 7px;
+  }
+
+  .main main {
+    width: 100%;
+    padding: 20px 16px;
+  }
+
+  .pagehead {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pagehead > .btn,
+  .pagehead > a.btn {
+    max-width: 100%;
+  }
+
+  .grid2,
+  .formgrid,
+  .product-basic-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stats,
+  .stats.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .stat,
+  .mini {
+    padding: 13px;
+  }
+
+  .product-fields.two,
+  .product-fields.three,
+  .fields.two,
+  .fields.three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .product-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .product-section-heading .btn,
+  .product-section-heading button {
+    width: 100%;
+  }
+
+  .productToolbar {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .variant-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .video-ad-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-ad-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .video-ad-form > .video-ad-error {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 13px;
+  }
+
+  .main header {
+    padding: 10px 12px;
+  }
+
+  .main main {
+    padding: 15px 12px;
+  }
+
+  .pagehead {
+    margin-bottom: 16px;
+  }
+
+  .pagehead h1 {
+    font-size: clamp(20px, 6vw, 25px);
+    line-height: 1.25;
+  }
+
+  .pagehead p {
+    line-height: 1.5;
+  }
+
+  .stats,
+  .stats.four {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .stat {
+    align-items: center;
+  }
+
+  .grid2 {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .panel {
+    border-radius: 9px;
+  }
+
+  .panel h3 {
+    padding: 15px;
+  }
+
+  .panelhead {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .toolbar {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .toolbar > *,
+  .searchbox {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Wide data tables stay readable and scroll inside their own area. */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th,
+  td {
+    padding: 10px 12px;
+  }
+
+  .formgrid label,
+  .formpanel label,
+  .product-form-page label,
+  .variant-section label {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .upload {
+    margin-right: 14px;
+    margin-left: 14px;
+  }
+
+  .product-info-box,
+  .product-setting {
+    margin-right: 14px;
+    margin-left: 14px;
+  }
+
+  .product-summary {
+    margin-right: 14px;
+    margin-left: 14px;
+  }
+
+  .variant-card-header,
+  .variant-card-new-header,
+  .color-card-header {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px 14px;
+  }
+
+  .variant-card-header,
+  .variant-card-new-header,
+  .color-card-header {
+    flex-wrap: wrap;
+  }
+
+  .variant-images,
+  .color-images {
+    margin-right: 14px;
+    margin-left: 14px;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .image-card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .color-image-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .image-actions button {
+    padding: 6px;
+    font-size: 9px;
+  }
+
+  .product-form-actions,
+  .formactions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .product-form-actions > *,
+  .formactions > *,
+  .video-ad-actions > * {
+    width: 100%;
+  }
+
+  .video-ad-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .video-ad-card video {
+    height: min(72vh, 420px);
+  }
+
+  .video-ad-panel {
+    padding: 14px;
+  }
+
+  .video-ad-status {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .login > div {
+    width: min(390px, calc(100% - 24px));
+    max-width: none;
+    padding: 24px 18px;
+  }
+
+  .login h1 {
+    font-size: 21px;
+  }
+
+  .login-error {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .total {
+    width: calc(100% - 28px);
+    max-width: none;
+    margin-right: 14px;
+    margin-left: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .main main {
+    padding: 12px 9px;
+  }
+
+  .stat,
+  .mini {
+    padding: 11px;
+  }
+
+  .staticon {
+    width: 35px;
+    height: 35px;
+    flex: 0 0 35px;
+  }
+
+  .pagehead .btn,
+  .pagehead a.btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .video-ad-card video {
+    height: 300px;
+  }
+
+  .image-actions {
+    left: 3px;
+    right: 3px;
+    gap: 3px;
+  }
+
+  .image-actions button {
+    padding: 4px;
+    font-size: 8px;
+  }
+}
