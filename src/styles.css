@@ -5010,3 +5010,454 @@ input, select, textarea { min-width: 0; }
   .image-actions { left: 3px; right: 3px; gap: 3px; }
   .image-actions button, .color-image-actions button { font-size: 8px; padding: 4px; }
 }
+
+
+/* =========================================================
+   CAPYBARA ADMIN — MOBILE LAYOUT FIX
+   Append this block to the VERY END of your existing styles.css.
+   It intentionally preserves the desktop design and improves
+   narrow-screen usability, including horizontally scrollable tables.
+   ========================================================= */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+#root,
+.shell,
+.main,
+.content,
+.main main {
+  min-width: 0;
+  max-width: 100%;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+button,
+.btn,
+input,
+select,
+textarea {
+  min-height: 40px;
+}
+
+button,
+.btn {
+  touch-action: manipulation;
+}
+
+/* Prevent grid children from forcing the page wider than the phone. */
+.stats > *,
+.grid2 > *,
+.formgrid > *,
+.product-basic-grid > *,
+.product-fields > *,
+.fields > *,
+.product-form-page,
+.product-panel,
+.panel,
+.variant-section,
+.variant-card-new,
+.color-card {
+  min-width: 0;
+}
+
+/* Tables stay readable and keep all actions available by horizontal swipe. */
+.panel:has(> table),
+.panel:has(.table-wrap),
+.table-wrap,
+.table-responsive,
+.table-container,
+.table-scroll,
+.inventory-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+}
+
+.panel > table,
+.panel table {
+  min-width: 650px;
+}
+
+.panel:has(table) {
+  overflow: hidden;
+}
+
+.panel:has(table) table {
+  display: table;
+}
+
+/* Page title/actions should not force a wider viewport. */
+.pagehead,
+.product-section-heading,
+.productToolbar,
+.variant-header,
+.variant-card-header,
+.variant-card-new-header,
+.color-card-header,
+.image-heading,
+.formactions,
+.product-form-actions {
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.pagehead > *,
+.product-section-heading > *,
+.productToolbar > *,
+.variant-header > *,
+.variant-card-header > *,
+.variant-card-new-header > *,
+.color-card-header > * {
+  min-width: 0;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+@media (max-width: 800px) {
+  .side {
+    width: min(290px, 86vw);
+    max-width: 86vw;
+    box-shadow: 12px 0 35px rgba(16, 24, 39, .18);
+  }
+
+  .main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .main header {
+    height: 64px;
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .hamb {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #f2efff;
+    color: var(--primary);
+  }
+
+  .main main {
+    width: 100%;
+    padding: 20px 16px;
+  }
+
+  .pagehead {
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .pagehead h1 {
+    font-size: clamp(23px, 5vw, 30px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .pagehead p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .pagehead > .btn,
+  .pagehead > a.btn,
+  .pagehead > button.btn {
+    width: 100%;
+    min-height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .stats,
+  .stats.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .stat,
+  .mini {
+    min-width: 0;
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .grid2,
+  .formgrid,
+  .product-basic-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fields.two,
+  .fields.three,
+  .product-fields.two,
+  .product-fields.three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toolbar {
+    gap: 10px;
+  }
+
+  .searchbox {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .toolbar .select,
+  .toolbar select {
+    max-width: 100%;
+  }
+
+  .productToolbar {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 14px 16px;
+  }
+
+  .productToolbar > * {
+    width: 100%;
+  }
+
+  .product-section-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .product-section-heading .btn,
+  .product-section-heading button,
+  .product-section-heading a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .panel h3,
+  .panelhead {
+    padding: 16px;
+  }
+
+  .setting-box,
+  .product-setting,
+  .product-summary {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .product-form-page label,
+  .formgrid label,
+  .formpanel label,
+  .variant-section label {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .variant-images,
+  .color-images {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .product-form-actions,
+  .formactions {
+    justify-content: stretch;
+  }
+
+  .product-form-actions > *,
+  .formactions > * {
+    flex: 1 1 140px;
+    text-align: center;
+  }
+
+  .login > div {
+    width: min(420px, calc(100vw - 32px));
+    max-width: none;
+    padding: 26px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .main main {
+    padding: 18px 12px;
+  }
+
+  .main header {
+    padding: 0 12px;
+  }
+
+  .pagehead {
+    margin-bottom: 18px;
+  }
+
+  .stats,
+  .stats.four {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stat h2 {
+    font-size: 22px;
+  }
+
+  .panel,
+  .stat,
+  .mini {
+    border-radius: 12px;
+  }
+
+  .panelhead {
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .panelhead h3 {
+    font-size: 15px;
+  }
+
+  .toolbar {
+    padding: 12px;
+  }
+
+  .toolbar > input,
+  .toolbar > select,
+  .toolbar > button,
+  .toolbar > .btn,
+  .toolbar > .searchbox {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .productToolbar {
+    padding: 12px;
+  }
+
+  .product-basic-grid {
+    gap: 12px;
+  }
+
+  .product-panel > h3 {
+    padding: 16px 14px 4px;
+  }
+
+  .panel-subtitle {
+    padding: 0 14px 12px;
+  }
+
+  .color-card-header,
+  .variant-card-header,
+  .variant-card-new-header {
+    padding: 13px 14px;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .remove-color,
+  .remove-variant {
+    flex: 0 0 auto;
+    min-height: 38px;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .image-card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .color-image-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .image-actions button,
+  .color-image-actions button {
+    min-height: 34px;
+    padding: 5px;
+  }
+
+  .upload,
+  .drop-zone,
+  .image-dropzone {
+    min-height: 120px;
+  }
+
+  .info-row,
+  .product-summary-row {
+    gap: 12px;
+  }
+
+  .info-row span,
+  .product-summary-row span {
+    overflow-wrap: anywhere;
+  }
+
+  .total {
+    max-width: none;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .donut {
+    max-width: 100%;
+  }
+
+  .login > div {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main main {
+    padding: 14px 10px;
+  }
+
+  .stats,
+  .stats.four {
+    gap: 10px;
+  }
+
+  .stat,
+  .mini {
+    padding: 12px;
+  }
+
+  .brand {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .formactions > *,
+  .product-form-actions > * {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
