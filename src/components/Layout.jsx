@@ -14,6 +14,7 @@ const links = [
 
   ["CONTENT"],
   ["Banners", "/admin/banners", "▧"],
+  ["Video Ads", "/admin/video-ads", "▶"],
 ];
 
 export default function Layout() {
