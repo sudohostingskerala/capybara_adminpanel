@@ -20,6 +20,7 @@ import CategoryForm from "./pages/CategoryForm";
 import BannerForm from "./pages/BannerForm";
 import VideoAds from "./pages/VideoAds";
 import VideoAdForm from "./pages/VideoAdForm";
+import ColorSize from "./pages/ColorSize";
 
 export default function App() {
   return (
@@ -70,10 +71,6 @@ export default function App() {
         />
 
         {/* Categories */}
-        <Route
-          path="categories"
-          element={<Categories />}
-        />
         <Route
           path="categories"
           element={<Categories />}
@@ -133,6 +130,12 @@ export default function App() {
         <Route
           path="inventory"
           element={<Inventory />}
+        />
+
+        {/* Colors & Sizes */}
+        <Route
+          path="colors-sizes"
+          element={<ColorSize />}
         />
 
       </Route>

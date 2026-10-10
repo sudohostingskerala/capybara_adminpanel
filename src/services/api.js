@@ -364,11 +364,17 @@ export const productAdminApi = {
 export const colorApi = {
   list: () =>
     api.get("/products/admin/colors/"),
+
+  create: (data) =>
+    api.post("/products/admin/colors/", data),
 };
 
 export const sizeApi = {
   list: () =>
     api.get("/products/admin/sizes/"),
+
+  create: (data) =>
+    api.post("/products/admin/sizes/", data),
 };
 
 
@@ -516,3 +522,4 @@ export const videoAdApi = {
 
 
 export default api;
+

@@ -8,6 +8,7 @@ const links = [
 
   ["STORE"],
   ["Products", "/admin/products", "▣"],
+  ["Colors & Sizes", "/admin/colors-sizes", "◉"],
   ["Categories", "/admin/categories", "◇"],
   ["Orders", "/admin/orders", "🛒"],
   ["Inventory", "/admin/inventory", "▤"],
