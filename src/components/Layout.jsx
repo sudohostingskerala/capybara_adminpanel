@@ -14,7 +14,6 @@ const links = [
 
   ["CONTENT"],
   ["Banners", "/admin/banners", "▧"],
-  ["Video Ads", "/admin/video-ads", "▶"],
 ];
 
 export default function Layout() {
@@ -133,6 +132,16 @@ export default function Layout() {
         </button>
       </aside>
 
+      {/* Mobile backdrop: tap outside the sidebar to close it. */}
+      {open && (
+        <button
+          type="button"
+          className="mobile-sidebar-overlay"
+          aria-label="Close navigation menu"
+          onClick={() => setOpen(false)}
+        />
+      )}
+
       {/* =====================================================
           MAIN AREA
           ===================================================== */}
@@ -146,6 +155,8 @@ export default function Layout() {
           <button
             type="button"
             className="hamb"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
           >
             ☰
