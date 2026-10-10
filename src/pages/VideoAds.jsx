@@ -69,58 +69,37 @@ export default function VideoAds() {
           </div>
         )}
         {!loading && !error && items.length > 0 && (
-          <div style={{ width: "100%", overflowX: "auto" }}>
-            <table>
-              <thead>
-                <tr>
-                  <th>Video</th>
-                  <th>Title</th>
-                  <th>Linked product</th>
-                  <th>Order</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((item) => (
-                  <tr key={item.id}>
-                    <td>
-                      {videoUrl(item) ? (
-                        <video
-                          src={videoUrl(item)}
-                          muted
-                          playsInline
-                          preload="metadata"
-                          style={{ width: 76, height: 100, objectFit: "cover", borderRadius: 7, background: "#111" }}
-                        />
-                      ) : <span>—</span>}
-                    </td>
-                    <td><strong>{item.title || "Untitled video"}</strong></td>
-                    <td>{productName(item)}</td>
-                    <td>{item.display_order ?? 0}</td>
-                    <td>
-                      <span style={{ color: item.is_active ? "#16834a" : "#7b8494", fontWeight: 600 }}>
-                        {item.is_active ? "Active" : "Inactive"}
-                      </span>
-                    </td>
-                    <td>
-                      <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-                        <Link className="btn btn-small" to={`/admin/video-ads/${item.id}/edit`}>Edit</Link>
-                        <button
-                          type="button"
-                          className="btn btn-small"
-                          disabled={deletingId === item.id}
-                          onClick={() => handleDelete(item)}
-                          style={{ background: "#fff", color: "#c83232", border: "1px solid #f0caca" }}
-                        >
-                          {deletingId === item.id ? "Deleting..." : "Delete"}
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="video-ad-list">
+            {items.map((item) => (
+              <article className="video-ad-card" key={item.id}>
+                {videoUrl(item) ? (
+                  <video src={videoUrl(item)} controls muted playsInline preload="metadata" />
+                ) : (
+                  <div className="video-ad-no-preview">No video preview</div>
+                )}
+                <div className="video-ad-card-body">
+                  <div className="video-ad-card-heading">
+                    <h3>{item.title || "Untitled video"}</h3>
+                    <span className={`video-ad-badge ${item.is_active ? "is-active" : "is-inactive"}`}>
+                      {item.is_active ? "Active" : "Inactive"}
+                    </span>
+                  </div>
+                  <p><strong>Product:</strong> {productName(item)}</p>
+                  <p><strong>Display order:</strong> {item.display_order ?? 0}</p>
+                  <div className="video-ad-card-actions">
+                    <Link className="btn btn-small" to={`/admin/video-ads/${item.id}/edit`}>Edit</Link>
+                    <button
+                      type="button"
+                      className="btn btn-small video-ad-delete"
+                      disabled={deletingId === item.id}
+                      onClick={() => handleDelete(item)}
+                    >
+                      {deletingId === item.id ? "Deleting..." : "Delete"}
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         )}
       </Panel>

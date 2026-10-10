@@ -4587,3 +4587,312 @@ td b {
     }
 
 }
+
+/* =========================================================
+   CAPYBARA VIDEO ADS — RESPONSIVE STYLES
+   Add this section at the bottom of styles.css
+   ========================================================= */
+
+.video-ad-form {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.video-ad-panel {
+  min-width: 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 5px 22px rgba(32, 40, 58, 0.04);
+}
+
+.video-ad-panel h3 {
+  margin: 0 0 6px;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.video-ad-description {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.video-ad-field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 20px;
+  color: #424b5b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.video-ad-field input:not([type="checkbox"]):not([type="file"]),
+.video-ad-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 1px solid #dfe3eb;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.video-ad-field input:focus,
+.video-ad-field select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(109, 74, 255, 0.1);
+}
+
+.video-ad-help {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.video-ad-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 190px;
+  padding: 24px;
+  border: 2px dashed #d8d3f9;
+  border-radius: 12px;
+  background: #faf9ff;
+  text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.video-ad-upload:hover {
+  background: #f3f0ff;
+  border-color: var(--primary);
+}
+
+.video-ad-upload-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #eeeaff;
+  color: var(--primary);
+  font-size: 23px;
+}
+
+.video-ad-upload strong {
+  color: #343047;
+  font-size: 13px;
+}
+
+.video-ad-upload small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.video-ad-preview {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  max-height: 440px;
+  margin: 18px auto 0;
+  border-radius: 12px;
+  background: #111;
+  object-fit: contain;
+}
+
+.video-ad-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid #edf0f4;
+}
+
+.video-ad-status strong {
+  display: block;
+  color: #343b49;
+  font-size: 12px;
+}
+
+.video-ad-status small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.video-ad-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.video-ad-actions .btn {
+  min-height: 40px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.video-ad-error {
+  padding: 13px 15px;
+  margin-bottom: 18px;
+  border: 1px solid #f1cccc;
+  border-radius: 9px;
+  background: #fff4f4;
+  color: #a52828;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Video listing */
+
+.video-ad-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.video-ad-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.video-ad-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(32, 40, 58, 0.08);
+}
+
+.video-ad-card video {
+  display: block;
+  width: 100%;
+  height: 240px;
+  background: #111;
+  object-fit: cover;
+}
+
+.video-ad-card-body {
+  padding: 15px;
+}
+
+.video-ad-card-body h3 {
+  margin: 0 0 8px;
+  padding: 0;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+.video-ad-card-body p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.video-ad-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #edf0f4;
+}
+
+.video-ad-card-actions .btn {
+  flex: 1;
+  text-align: center;
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .video-ad-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .video-ad-form {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.8fr);
+    gap: 16px;
+  }
+}
+
+/* Mobile and small tablets */
+
+@media (max-width: 800px) {
+  .video-ad-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-ad-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .video-ad-panel {
+    padding: 18px;
+  }
+
+  .video-ad-card video {
+    height: 220px;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 480px) {
+  .video-ad-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .video-ad-card video {
+    height: 280px;
+  }
+
+  .video-ad-panel {
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .video-ad-upload {
+    min-height: 155px;
+    padding: 18px 12px;
+  }
+
+  .video-ad-actions {
+    flex-direction: column;
+  }
+
+  .video-ad-actions .btn {
+    width: 100%;
+  }
+
+  .video-ad-preview {
+    max-height: 350px;
+  }
+}

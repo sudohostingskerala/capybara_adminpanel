@@ -159,63 +159,60 @@ export default function VideoAdForm() {
         <Link className="btn" to="/admin/video-ads">← Back to Videos</Link>
       </Header>
       <Panel>
-        <form onSubmit={handleSubmit} style={{ maxWidth: 760, display: "grid", gap: 18 }}>
-          {error && <div role="alert" style={{ padding: "11px 13px", borderRadius: 8, color: "#a52828", background: "#fff0f0", border: "1px solid #f2cccc" }}>{error}</div>}
+        <form onSubmit={handleSubmit} className="video-ad-form">
+          {error && <div className="video-ad-error" role="alert">{error}</div>}
 
-          <label style={{ display: "grid", gap: 7, fontWeight: 600 }}>
+          <section className="video-ad-panel">
+            <h3>Video details</h3>
+            <p className="video-ad-description">Give your shoppable video a clear title and connect it to a product.</p>
+            <label className="video-ad-field">
             Video title <span style={{ color: "#c83232" }}>*</span>
-            <input name="title" value={form.title} onChange={handleChange} required maxLength={200} placeholder="e.g. Festive collection" style={inputStyle} />
+            <input name="title" value={form.title} onChange={handleChange} required maxLength={200} placeholder="e.g. Festive collection" />
           </label>
 
-          <label style={{ display: "grid", gap: 7, fontWeight: 600 }}>
+          <label className="video-ad-field">
             Linked product <span style={{ color: "#c83232" }}>*</span>
-            <select name="product" value={form.product} onChange={handleChange} required disabled={productsLoading} style={inputStyle}>
+            <select name="product" value={form.product} onChange={handleChange} required disabled={productsLoading}>
               <option value="">{productsLoading ? "Loading products..." : "Select a product"}</option>
               {products.map((product) => <option key={product.id} value={product.id}>{product.name}</option>)}
             </select>
             {!productsLoading && products.length === 0 && <small style={{ color: "#a52828" }}>No products were returned by the admin products API.</small>}
           </label>
+          </section>
 
+          <section className="video-ad-panel">
+            <h3>Video preview & publishing</h3>
+            <p className="video-ad-description">Upload a vertical video and configure how it appears on your storefront.</p>
           <div style={{ display: "grid", gap: 8, fontWeight: 600 }}>
             Video file {isEditMode ? <span style={{ color: "#7b8494", fontWeight: 400 }}>(optional when editing; leave empty to keep current video)</span> : <span style={{ color: "#c83232" }}>*</span>}
-            <input type="file" accept="video/mp4,video/webm,video/quicktime,video/*" onChange={handleVideoChange} style={{ ...inputStyle, padding: 9 }} />
-            <small style={{ color: "#7b8494", fontWeight: 400 }}>Choose MP4, WebM, or MOV. Maximum file size: 100 MB.</small>
+            <input type="file" accept="video/mp4,video/webm,video/quicktime,video/*" onChange={handleVideoChange} className="video-ad-file-input" />
+            <small className="video-ad-help">Choose MP4, WebM, or MOV. Maximum file size: 100 MB.</small>
             {currentVideo && (
-              <video key={currentVideo} src={currentVideo} controls muted playsInline preload="metadata" style={{ display: "block", width: "min(100%, 280px)", maxHeight: 380, background: "#111", borderRadius: 10, marginTop: 5 }} />
+              <video key={currentVideo} src={currentVideo} controls muted playsInline preload="metadata" className="video-ad-preview" />
             )}
-            {videoFile && <small style={{ color: "#16834a", fontWeight: 400 }}>Selected: {videoFile.name}</small>}
+            {videoFile && <small className="video-ad-selected">Selected: {videoFile.name}</small>}
           </div>
 
-          <label style={{ display: "grid", gap: 7, fontWeight: 600 }}>
+          <label className="video-ad-field">
             Display order
-            <input type="number" min="0" step="1" name="display_order" value={form.display_order} onChange={handleChange} style={inputStyle} />
-            <small style={{ color: "#7b8494", fontWeight: 400 }}>Lower numbers appear first.</small>
+            <input type="number" min="0" step="1" name="display_order" value={form.display_order} onChange={handleChange} />
+            <small className="video-ad-help">Lower numbers appear first.</small>
           </label>
 
-          <label style={{ display: "flex", gap: 10, alignItems: "center", fontWeight: 600 }}>
+          <label className="video-ad-status">
+            <span><strong>Publish video</strong><small>Active videos appear on the public storefront.</small></span>
             <input type="checkbox" name="is_active" checked={form.is_active} onChange={handleChange} />
-            Active — show this video on the public storefront
           </label>
 
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", paddingTop: 6 }}>
+          <div className="video-ad-actions">
             <button className="btn" type="submit" disabled={saving || productsLoading}>
               {saving ? "Saving..." : isEditMode ? "Save Changes" : "Upload Video"}
             </button>
             <Link className="btn" to="/admin/video-ads" style={{ background: "#fff", color: "#374151", border: "1px solid #d9dee8" }}>Cancel</Link>
           </div>
+          </section>
         </form>
       </Panel>
     </>
   );
 }
-
-const inputStyle = {
-  width: "100%",
-  minHeight: 40,
-  padding: "10px 12px",
-  border: "1px solid #d9dee8",
-  borderRadius: 8,
-  background: "#fff",
-  color: "#171b25",
-  font: "inherit",
-};
