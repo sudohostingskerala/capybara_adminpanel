@@ -355,7 +355,7 @@ export default function Orders() {
                   <td>
 
                     <Link
-                      className="action"
+                      className="order-view-btn"
                       to={`/admin/orders/${order.id}`}
                     >
                       View
