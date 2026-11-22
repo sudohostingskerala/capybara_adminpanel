@@ -520,6 +520,19 @@ export const videoAdApi = {
     api.delete(`/video-ads/admin/${id}/`),
 };
 
+// =========================================================
+// TRUST TEXT API
+// =========================================================
+
+const TRUST_TEXT_ADMIN_URL = "/storefront/admin/trust-texts/";
+
+export const trustTextApi = {
+  list: () => api.get(TRUST_TEXT_ADMIN_URL),
+  create: (data) => api.post(TRUST_TEXT_ADMIN_URL, data),
+  update: (id, data) => api.patch(`${TRUST_TEXT_ADMIN_URL}${id}/`, data),
+  remove: (id) => api.delete(`${TRUST_TEXT_ADMIN_URL}${id}/`),
+};
+
 
 export default api;
 

@@ -21,6 +21,7 @@ import BannerForm from "./pages/BannerForm";
 import VideoAds from "./pages/VideoAds";
 import VideoAdForm from "./pages/VideoAdForm";
 import ColorSize from "./pages/ColorSize";
+import TrustTexts from "./pages/TrustTexts";
 
 export default function App() {
   return (
@@ -91,6 +92,12 @@ export default function App() {
   path="banners"
   element={<Banners />}
 />
+
+        {/* Trust Text */}
+        <Route
+          path="trust-texts"
+          element={<TrustTexts />}
+        />
 
 <Route
   path="banners/new"

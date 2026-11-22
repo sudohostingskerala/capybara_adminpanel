@@ -15,6 +15,7 @@ const links = [
 
   ["CONTENT"],
   ["Banners", "/admin/banners", "▧"],
+  ["Trust Text", "/admin/trust-texts", "✓"],
   ["Video Ads", "/admin/video-ads", "▶"],
 ];
 
