@@ -5958,6 +5958,45 @@ svg {
     font-size: 13px;
 }
 
+.invoice-unavailable {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    max-width: 760px;
+    margin: 14px auto;
+    padding: 20px;
+    border: 1px solid #e8e4fb;
+    border-radius: 10px;
+    background: #fbfaff;
+}
+
+.invoice-unavailable-icon {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border-radius: 50%;
+    background: #eeeaff;
+    color: #6548d8;
+    font-weight: 700;
+}
+
+.invoice-unavailable h2 {
+    margin: 2px 0 8px;
+    font-size: 15px;
+}
+
+.invoice-unavailable p {
+    margin: 0 0 9px;
+    color: #687184;
+    line-height: 1.6;
+}
+
+.invoice-unavailable p:last-child {
+    margin-bottom: 0;
+}
+
 @media (max-width: 760px) {
     .color-size-grid {
         grid-template-columns: minmax(0, 1fr);

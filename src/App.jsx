@@ -22,6 +22,7 @@ import VideoAds from "./pages/VideoAds";
 import VideoAdForm from "./pages/VideoAdForm";
 import ColorSize from "./pages/ColorSize";
 import TrustTexts from "./pages/TrustTexts";
+import Invoices from "./pages/Invoices";
 
 export default function App() {
   return (
@@ -118,6 +119,11 @@ export default function App() {
   path="orders/:id"
   element={<OrderDetails />}
 />
+
+        <Route
+          path="invoices"
+          element={<Invoices />}
+        />
 
         {/* Video Advertisements */}
         <Route

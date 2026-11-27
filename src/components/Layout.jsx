@@ -11,6 +11,7 @@ const links = [
   ["Colors & Sizes", "/admin/colors-sizes", "◉"],
   ["Categories", "/admin/categories", "◇"],
   ["Orders", "/admin/orders", "🛒"],
+  ["Invoices", "/admin/invoices", "▧"],
   ["Inventory", "/admin/inventory", "▤"],
 
   ["CONTENT"],
